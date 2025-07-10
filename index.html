@@ -113,15 +113,15 @@
             right: 20px;
             background: linear-gradient(135deg, #f97316, #ef4444);
             color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            height: 50px;
+            border-radius: 25px;
             display: flex;
             justify-content: center;
             align-items: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             z-index: 40;
             cursor: pointer;
+            padding: 0 15px;
         }
         
         .sticky-header {
@@ -223,7 +223,13 @@
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center">
                 <img src="https://i.pinimg.com/originals/ab/1f/7e/ab1f7e347ea3d5bd1d73c376fa70b023.jpg" alt="Misshop Logo" class="h-10 mr-3">
-                <h1 class="text-xl font-bold text-gray-800">Misshop</h1>
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-800 mr-2">Misshop</h1>
+                    <div class="flex items-center bg-blue-50 text-blue-600 px-2 py-1 rounded-full text-xs">
+                        <i class="fas fa-check-circle mr-1"></i>
+                        <span>Original Verified</span>
+                    </div>
+                </div>
             </div>
             <div class="flex items-center space-x-4">
                 <div class="hidden md:flex items-center text-sm">
@@ -552,6 +558,59 @@
         <div class="container mx-auto text-center animate-fade-in">
             <h2 class="text-3xl font-bold mb-4">🔥 PROMO HARI INI SAJA! 🔥</h2>
             <p class="text-xl text-gray-700 max-w-2xl mx-auto mb-8">Dapatkan Miko Denim Legging dengan harga TERMURAH + GRATIS ONGKIR!</p>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8 max-w-2xl mx-auto">
+                <h3 class="text-xl font-bold mb-4 text-center">Tabel Ukuran & Warna</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-3 border text-left">Ukuran</th>
+                                <th class="p-3 border text-center">Lingkar Pinggang</th>
+                                <th class="p-3 border text-center">Rekomendasi BB</th>
+                                <th class="p-3 border text-center">Panjang Celana</th>
+                                <th class="p-3 border text-center">Black</th>
+                                <th class="p-3 border text-center">Milo</th>
+                                <th class="p-3 border text-center">Navy</th>
+                                <th class="p-3 border text-center">White</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 border font-medium">L</td>
+                                <td class="p-3 border text-center">80-90cm</td>
+                                <td class="p-3 border text-center">60-70kg</td>
+                                <td class="p-3 border text-center">90cm</td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="p-3 border font-medium">XL</td>
+                                <td class="p-3 border text-center">90-100cm</td>
+                                <td class="p-3 border text-center">70-85kg</td>
+                                <td class="p-3 border text-center">92cm</td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border font-medium">XXL</td>
+                                <td class="p-3 border text-center">100-110cm</td>
+                                <td class="p-3 border text-center">85-100kg</td>
+                                <td class="p-3 border text-center">95cm</td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-3 border text-center"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">* Semua ukuran tersedia dalam 4 pilihan warna<br>* Panjang celana diukur dari pinggang hingga mata kaki</p>
+            </div>
                         
             <div class="flex justify-center items-center mb-8">
                 <div class="bg-white p-6 rounded-xl shadow-lg max-w-md w-full border-2 border-orange-400">
@@ -643,21 +702,31 @@
             <div class="p-4">
                 <!-- Payment Info -->
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r">
-                    <h3 class="font-bold text-lg mb-2">Metode Pembayaran (Bank Transfer)</h3>
+                    <h3 class="font-bold text-lg mb-2">Metode Pembayaran</h3>
                     <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <span class="font-medium">Bank BCA</span>
-                            <span>3151273872 A/N NOVITA SARI </span>
+                        <div class="flex items-center mb-2">
+                            <img src="https://www.freepnglogos.com/uploads/logo-bca-png/bank-central-asia-logo-bank-central-asia-bca-format-cdr-png-gudril-1.png" alt="BCA" class="h-6 mr-2">
+                            <span class="font-medium">Bank Transfer BCA</span>
                         </div>
+                        <div class="bg-white p-3 rounded border border-blue-100">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600">Nomor Rekening:</span>
+                                <span class="font-medium">3151273872</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Atas Nama:</span>
+                                <span class="font-medium">NOVITA SARI</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-4 bg-green-50 border-l-4 border-green-500 p-3 rounded-r">
-                        <div class="flex items-center">
-                            <i class="fas fa-ticket-alt text-green-500 mr-2"></i>
-                            <span class="font-bold">Voucher Gratis Ongkir: <span class="text-green-600">FREESHIP</span></span>
-                        </div>
-                        <p class="text-sm mt-1">Gunakan kode voucher di atas untuk mendapatkan gratis ongkir khusus pembayaran via transfer hari ini!</p>
+                </div>
+                <div class="mt-4 bg-green-50 border-l-4 border-green-500 p-3 rounded-r">
+                    <div class="flex items-center">
+                        <i class="fas fa-ticket-alt text-green-500 mr-2"></i>
+                        <span class="font-bold">Voucher Gratis Ongkir: <span class="text-green-600">FREESHIP</span></span>
                     </div>
+                    <p class="text-sm mt-1">Gunakan kode voucher di atas untuk mendapatkan gratis ongkir khusus pembayaran via transfer BCA hari ini!</p>
+                </div>
                 </div>
                 
                 <!-- OrderOnline Embed Form -->
@@ -745,7 +814,10 @@
 
     <!-- Floating Button -->
     <div class="floating-button md:hidden" id="floating-buy-btn">
-        <i class="fas fa-shopping-cart text-xl"></i>
+        <div class="flex items-center justify-center gap-2 px-3">
+            <i class="fas fa-shopping-cart text-xl"></i>
+            <span class="text-sm font-medium">Ambil Promo</span>
+        </div>
     </div>
 
     <!-- Welcome Back Popup -->
@@ -758,6 +830,20 @@
             <div class="text-sm">Dapatkan diskon Rp25.000 + GRATIS ONGKIR khusus untuk Anda!</div>
         </div>
         <button id="close-welcome-popup" class="ml-3 text-white hover:text-gray-200">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Back Button Popup -->
+    <div id="back-popup" class="welcome-back-popup" style="display: none;">
+        <div class="mr-3 text-2xl">
+            <i class="fas fa-percentage"></i>
+        </div>
+        <div>
+            <div class="font-bold">PROMO MASIH BERLAKU!</div>
+            <div class="text-sm">Diskon Rp25.000 + GRATIS ONGKIR khusus untuk Anda!</div>
+        </div>
+        <button id="close-back-popup" class="ml-3 text-white hover:text-gray-200">
             <i class="fas fa-times"></i>
         </button>
     </div>
@@ -994,6 +1080,32 @@
 
         // Start the popup cycle
         showRandomPopup();
+
+        // Back button detection
+        window.addEventListener('popstate', function(event) {
+            const backPopup = document.getElementById('back-popup');
+            backPopup.style.display = 'flex';
+            
+            setTimeout(() => {
+                backPopup.classList.add('show');
+                
+                setTimeout(() => {
+                    backPopup.classList.remove('show');
+                }, 5000);
+            }, 1000);
+            
+            // Push state again to keep the page in history
+            history.pushState(null, null, window.location.href);
+        });
+
+        // Close back popup
+        document.getElementById('close-back-popup').addEventListener('click', function() {
+            const backPopup = document.getElementById('back-popup');
+            backPopup.classList.remove('show');
+        });
+
+        // Initialize history state
+        history.pushState(null, null, window.location.href);
 
         // Scroll animations
         const animateOnScroll = () => {
