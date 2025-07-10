@@ -79,28 +79,6 @@
             max-width: 300px;
         }
 
-        .welcome-back-popup {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #f97316, #ef4444);
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            padding: 15px;
-            z-index: 50;
-            transform: translateY(100%);
-            opacity: 0;
-            transition: all 0.3s ease;
-            max-width: 300px;
-            display: flex;
-            align-items: center;
-        }
-
-        .welcome-back-popup.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
         
         .new-order-popup.show {
             transform: translateY(0);
@@ -821,31 +799,59 @@
     </div>
 
     <!-- Welcome Back Popup -->
-    <div id="welcome-back-popup" class="welcome-back-popup">
-        <div class="mr-3 text-2xl">
-            <i class="fas fa-gift"></i>
+    <div id="welcome-back-popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-[9999] hidden">
+        <div class="bg-white rounded-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 p-6 text-white text-center">
+                <i class="fas fa-gift text-4xl mb-4"></i>
+                <h2 class="text-2xl font-bold mb-2">SELAMAT DATANG KEMBALI!</h2>
+                <p class="text-lg">Dapatkan diskon Rp25.000 + GRATIS ONGKIR khusus untuk Anda!</p>
+            </div>
+            
+            <div class="p-6 text-center">
+                <div class="space-y-3 mb-6">
+                    <div class="text-xl font-bold text-orange-600">✔ Diskon Rp25.000</div>
+                    <div class="text-xl font-bold text-orange-600">✔ Gratis Ongkir</div>
+                    <div class="text-lg text-gray-700 mt-4">Jangan lewatkan kesempatan ini!</div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button id="close-welcome-popup" class="px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium transition-colors">
+                        Tutup
+                    </button>
+                    <button id="welcome-popup-promo-btn" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white rounded-lg font-bold shadow-lg transition-all transform hover:scale-105">
+                        Ambil Promo Sekarang
+                    </button>
+                </div>
+            </div>
         </div>
-        <div>
-            <div class="font-bold">SELAMAT DATANG KEMBALI!</div>
-            <div class="text-sm">Dapatkan diskon Rp25.000 + GRATIS ONGKIR khusus untuk Anda!</div>
-        </div>
-        <button id="close-welcome-popup" class="ml-3 text-white hover:text-gray-200">
-            <i class="fas fa-times"></i>
-        </button>
     </div>
 
     <!-- Back Button Popup -->
-    <div id="back-popup" class="welcome-back-popup" style="display: none;">
-        <div class="mr-3 text-2xl">
-            <i class="fas fa-percentage"></i>
+    <div id="back-popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-[9999] hidden">
+        <div class="bg-white rounded-xl max-w-2xl w-full mx-4 overflow-hidden">
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 p-6 text-white text-center">
+                <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
+                <h2 class="text-2xl md:text-3xl font-bold mb-2">TUNGGU DULU! PROMO MASIH BERLAKU!</h2>
+                <p class="text-lg">Anda akan kehilangan penawaran spesial ini:</p>
+            </div>
+            
+            <div class="p-6 text-center">
+                <div class="space-y-3 mb-6">
+                    <div class="text-xl font-bold text-orange-600">✔ Diskon Rp25.000</div>
+                    <div class="text-xl font-bold text-orange-600">✔ Gratis Ongkir</div>
+                    <div class="text-lg text-gray-700 mt-4">Jangan lewatkan kesempatan ini!</div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button id="close-back-popup" class="px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium transition-colors">
+                        Tutup
+                    </button>
+                    <button id="back-popup-promo-btn" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white rounded-lg font-bold shadow-lg transition-all transform hover:scale-105">
+                        Ambil Promo Sekarang
+                    </button>
+                </div>
+            </div>
         </div>
-        <div>
-            <div class="font-bold">PROMO MASIH BERLAKU!</div>
-            <div class="text-sm">Diskon Rp25.000 + GRATIS ONGKIR khusus untuk Anda!</div>
-        </div>
-        <button id="close-back-popup" class="ml-3 text-white hover:text-gray-200">
-            <i class="fas fa-times"></i>
-        </button>
     </div>
 
     <!-- Footer -->
@@ -1065,17 +1071,23 @@
         } else {
             // Show welcome back popup after 2 seconds
             setTimeout(() => {
-                welcomePopup.classList.add('show');
+                welcomePopup.classList.remove('hidden');
                                 
                 // Auto hide after 8 seconds
                 setTimeout(() => {
-                    welcomePopup.classList.remove('show');
+                    welcomePopup.classList.add('hidden');
                 }, 8000);
             }, 2000);
         }
                 
         closeWelcomePopup.addEventListener('click', () => {
-            welcomePopup.classList.remove('show');
+            welcomePopup.classList.add('hidden');
+        });
+
+        document.getElementById('welcome-popup-promo-btn').addEventListener('click', function() {
+            welcomePopup.classList.add('hidden');
+            document.getElementById('order-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         });
 
         // Start the popup cycle
@@ -1084,24 +1096,21 @@
         // Back button detection
         window.addEventListener('popstate', function(event) {
             const backPopup = document.getElementById('back-popup');
-            backPopup.style.display = 'flex';
-            
-            setTimeout(() => {
-                backPopup.classList.add('show');
-                
-                setTimeout(() => {
-                    backPopup.classList.remove('show');
-                }, 5000);
-            }, 1000);
+            backPopup.classList.remove('hidden');
             
             // Push state again to keep the page in history
             history.pushState(null, null, window.location.href);
         });
 
-        // Close back popup
+        // Back popup handlers
         document.getElementById('close-back-popup').addEventListener('click', function() {
-            const backPopup = document.getElementById('back-popup');
-            backPopup.classList.remove('show');
+            document.getElementById('back-popup').classList.add('hidden');
+        });
+
+        document.getElementById('back-popup-promo-btn').addEventListener('click', function() {
+            document.getElementById('back-popup').classList.add('hidden');
+            document.getElementById('order-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         });
 
         // Initialize history state
